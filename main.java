@@ -5,6 +5,11 @@ Integrantes:
 Negrete Ojeda Ivan Alberto
 Ortega Sanchez Jesus David*/
 
+/* Juego Pancakes para IA I
+Integrantes:
+Negrete Ojeda Ivan Alberto
+Ortega Sanchez Jesus David*/
+
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.Queue;
