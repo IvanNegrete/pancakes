@@ -18,7 +18,7 @@ public class main {
 		ArrayList<pancake> yaRevisados = new ArrayList<pancake>();
 
 		Scanner leer = new Scanner (System.in);
-		System.out.println("Ingrese el número de pancakes");
+		System.out.println("Ingrese el nÃºmero de pancakes");
 		int cantidad = leer.nextInt();
 		String ordenado = "abcdefghijklmnopqrstuvwxyz";	
 		ordenado = ordenado.substring(0, cantidad);

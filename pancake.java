@@ -1,7 +1,7 @@
 package pancakes;
 
 public class pancake {
-
+  
 	private String texto;
 	private int id;
 	private int idPadre;
