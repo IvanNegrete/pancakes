@@ -18,50 +18,48 @@ public class main {
 		ArrayList<pancake> yaRevisados = new ArrayList<pancake>();
 
 		Scanner leer = new Scanner (System.in);
-		System.out.println("Ingrese el nÃºmero de pancakes");
+		System.out.println("Ingrese el número de pancakes");
 		int cantidad = leer.nextInt();
 		String ordenado = "abcdefghijklmnopqrstuvwxyz";	
 		ordenado = ordenado.substring(0, cantidad);
 		System.out.println( "" );
 		System.out.println("Cadena Original: " + ordenado);
 		int caracterRecorrido = 2;
-		int cont = 0;
 		String cadena = revolver(ordenado);
-		pancake raiz = new pancake(cadena, 1, 0);
+		pancake raiz = new pancake(cadena, id, 0, 0);
 		cola.offer(raiz);
 		yaRevisados.add(raiz);
-		System.out.println("Cadena Reuvelta: " + cadena);
+		System.out.println("Cadena Revuelta: " + cadena);
 		System.out.println("-----");
 		while(!cadena.equals(ordenado)) {
 			id++;
 			cadena = cola.peek().getTexto();
 			cadena = mover(cadena, caracterRecorrido);
 			
-			pancake estado = new pancake(cadena, id,  cola.peek().getId());
+			pancake estado = new pancake(cadena, id,  cola.peek().getId(), caracterRecorrido);
 			cola.offer(estado);
 			yaRevisados.add(estado);
 
-			if (cont == cadena.length() - 2) {
-				cola.remove();
-				cont = 0;
-			} else {
-				cont++;
-			}
 			if (caracterRecorrido == (cadena.length())) {
 				caracterRecorrido = 2;
+				cola.remove();
 			} else {
 				caracterRecorrido++;
 			}
 		}
-		ArrayList<String>camino = new ArrayList<>();
-		while (yaRevisados.get(id-1).getIdPadre() > 0) {
-			camino.add(yaRevisados.get(id-1).getTexto());
-			id = yaRevisados.get(id-1).getIdPadre();
+		if(id>1) {
+			ArrayList<pancake>camino = new ArrayList<>();
+			while (yaRevisados.get(id-1).getIdPadre() > 0) {
+				camino.add(yaRevisados.get(id-1));
+				id = yaRevisados.get(id-1).getIdPadre();
+			}
+			for(int i = camino.size()-1; i >= 0; i --) {
+				System.out.println("Se movió desde la pos " + camino.get(i).getDesplazados() + ": " + camino.get(i).getTexto());
+			}
+			System.out.println();
+		}else {
+			System.out.println("La cadena no requiere ningun cambio: " + cadena);
 		}
-		for(int i = camino.size()-1; i >= 0; i --) {
-			System.out.println(camino.get(i));
-		}
-		System.out.println();
 
 	}
 	

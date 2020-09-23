@@ -5,11 +5,13 @@ public class pancake {
 	private String texto;
 	private int id;
 	private int idPadre;
+	private int desplazados;
 	
-	public pancake(String texto, int id, int idPadre) {
+	public pancake(String texto, int id, int idPadre, int desplazados) {
 		this.texto = texto;
 		this.id = id;
 		this.idPadre = idPadre;
+		this.desplazados = desplazados;
 	}
 
 	public String getTexto() {
@@ -34,6 +36,14 @@ public class pancake {
 
 	public void setIdPadre(int idPadre) {
 		this.idPadre = idPadre;
+	}
+
+	public int getDesplazados() {
+		return desplazados;
+	}
+
+	public void setDesplazados(int desplazados) {
+		this.desplazados = desplazados;
 	}
 	
 	
